@@ -36,8 +36,10 @@ function App() {
 
   useEffect(() => {
     const onLoad = async () => {
-      const provider = await new ethers.providers.Web3Provider(window.ethereum);
-      setProvider(provider);
+      if (typeof window.ethereum !== "undefined") {
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        setProvider(provider);
+      }
 
       const wethContract = getWethContract();
       setWethContract(wethContract);
