@@ -16,8 +16,8 @@ import {
 } from "./AlphaRouterService";
 
 function App() {
-  const [provider, setProvider] = useState(undefined); //read only
-  const [signer, setSigner] = useState(undefined); //write to the chain
+  const [provider, setProvider] = useState(undefined);
+  const [signer, setSigner] = useState(undefined);
   const [signerAddress, setSignerAddress] = useState(undefined);
 
   const [slippageAmount, setSlippageAmount] = useState(2);
@@ -51,13 +51,11 @@ function App() {
   }, []);
 
   const getSigner = async (provider) => {
-    provider.send("eth_requestAccounts", []); //accounts in wallet
+    provider.send("eth_requestAccounts", []);
     const signer = provider.getSigner();
     setSigner(signer);
   };
-
   const isConnected = () => signer !== undefined;
-
   const getWalletAddress = () => {
     signer.getAddress().then((address) => {
       setSignerAddress(address);
@@ -97,6 +95,9 @@ function App() {
       <div className="appNav">
         <div className="my-2 buttonContainer buttonContainerTop">
           <PageButton name={"Swap"} isBold={true} />
+          {/* <PageButton name={"Pool"} />
+          <PageButton name={"Vote"} />
+          <PageButton name={"Charts"} /> */}
         </div>
 
         <div className="rightNav my-2">
@@ -108,7 +109,9 @@ function App() {
               getSigner={getSigner}
             />
           </div>
-          {/* <div className="my-2 buttonContainer"></div> */}
+          <div className="my-2 buttonContainer">
+            {/* <PageButton name={"..."} isBold={true} /> */}
+          </div>
         </div>
       </div>
 
