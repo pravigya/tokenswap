@@ -12,7 +12,7 @@ const ERC20ABI = require("./abi.json");
 const V3_SWAP_ROUTER_ADDRESS = "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45";
 const REACT_APP_INFURA_URL_TESTNET = process.env.REACT_APP_INFURA_URL_TESTNET;
 
-const chainId = 11155111;
+const chainId = 5;
 
 const web3Provider = new ethers.providers.JsonRpcProvider(
   REACT_APP_INFURA_URL_TESTNET
@@ -22,12 +22,12 @@ const router = new AlphaRouter({ chainId: chainId, provider: web3Provider });
 const name0 = "Wrapped Ether";
 const symbol0 = "WETH";
 const decimals0 = 18;
-const address0 = "0x7b79995e5f793A07Bc00c21412e50Ecae098E7f9";
+const address0 = "0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6";
 
 const name1 = "Uniswap Token";
 const symbol1 = "UNI";
 const decimals1 = 18;
-const address1 = "0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984";
+const address1 = "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984";
 
 const WETH = new Token(chainId, address0, decimals0, symbol0, name0);
 const UNI = new Token(chainId, address1, decimals1, symbol1, name1);
